@@ -1,8 +1,9 @@
 #include "quadratic-equation.hpp"
 #include <limits>
 #include <cmath>
+#include <stdexcept>
 
- std::array<double, 2> solve(double a, double b, double c){
+std::array<double, 2> solve(double a, double b, double c){
     const double epsilon = std::numeric_limits<double>::epsilon() * 100;
     if(std::fabs(a) < epsilon)
         throw std::invalid_argument("coefficient A mustn't be 0");
