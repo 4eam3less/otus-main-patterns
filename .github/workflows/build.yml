@@ -16,4 +16,4 @@ jobs:
       - run: cmake .
       - run: cmake --build .
       - run: cmake --build .  --target test-solve
-      - run: ./test-solve
+      - run: homework1/tests/test-solve
