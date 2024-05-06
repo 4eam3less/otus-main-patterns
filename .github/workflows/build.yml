@@ -1,0 +1,19 @@
+name: 'C++ CI'
+
+on:
+  push:
+    branches:
+      - master
+      - feature/github_actions
+
+jobs:
+  build-homework1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - run: cmake .
+      - run: cmake --build .
+      - run: cmake --build .  --target test-solve
+      - run: homework1/tests/test-solve
