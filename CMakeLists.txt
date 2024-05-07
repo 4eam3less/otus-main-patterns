@@ -14,4 +14,4 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_subdirectory("homework1")
+add_subdirectory(${SOLUTION})

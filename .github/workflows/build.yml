@@ -13,7 +13,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - run: cmake .
+      - run: cmake . -DSOLUTION=homework1
       - run: cmake --build .
       - run: cmake --build .  --target test-solve
       - run: homework1/tests/test-solve
+
+  build-homework2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - run: cmake . -DSOLUTION=homework2
+      - run: cmake --build .
+      - run: homework2/test-move
