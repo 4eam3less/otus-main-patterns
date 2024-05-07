@@ -37,7 +37,6 @@ TEST(Move, GetPositionException) {
 
 TEST(Move, GetVelocityException) {
     MoveMock movable_mock;
-    EXPECT_CALL(movable_mock, get_position()).WillOnce(Return(Vec2{1, 1}));
     EXPECT_CALL(movable_mock, get_velocity()).WillOnce(Throw(std::runtime_error("")));
     EXPECT_THROW(move(movable_mock), std::runtime_error);
 }
@@ -66,7 +65,6 @@ TEST(rotate, GetAngleException) {
 
 TEST(rotate, GetAngularVelocityException) {
     RotateMock rotable_mock;
-    EXPECT_CALL(rotable_mock, get_angle()).WillOnce(Return(Angle{12, 360}));
     EXPECT_CALL(rotable_mock, get_angular_velocity()).WillOnce(Throw(std::runtime_error("")));
     EXPECT_THROW(rotate(rotable_mock), std::runtime_error);
 }
