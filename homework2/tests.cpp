@@ -10,14 +10,14 @@ using testing::Return;
 class MoveMock : public IMovable {
 public:
     MOCK_METHOD(Vec2, get_position, (), (override));
-    MOCK_METHOD(void, set_position, (struct Vec2), (override));
+    MOCK_METHOD(void, set_position, (const struct Vec2&), (override));
     MOCK_METHOD(Vec2, get_velocity, (), (override));
 };
 
 class RotateMock : public IRotable {
 public:
     MOCK_METHOD(Angle, get_angle, (), (override));
-    MOCK_METHOD(void, set_angle, (struct Angle), (override));
+    MOCK_METHOD(void, set_angle, (const struct Angle&), (override));
     MOCK_METHOD(Angle, get_angular_velocity, (), (override));
 };
 
