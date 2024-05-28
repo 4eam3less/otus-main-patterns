@@ -1,17 +1,18 @@
 set(TARGET_NAME test-move)
 
 set(HEADERS
-        vec2.hpp
-        movable.hpp
-        move.hpp
-        angle.hpp
-        rotable.hpp
-        rotate.hpp
+        move/vec2.hpp
+        move/movable.hpp
+        move/move.hpp
+        rotate/angle.hpp
+        rotate/rotable.hpp
+        rotate/rotate.hpp
         )
 
 set(SOURCES
-        tests.cpp
-        angle.cpp
+        move/tests.cpp
+        rotate/angle.cpp
+        rotate/tests.cpp
         )
 
 add_executable(${TARGET_NAME} ${HEADERS} ${SOURCES})
