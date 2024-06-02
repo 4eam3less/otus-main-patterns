@@ -14,6 +14,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-#add_subdirectory("quadratic-equation")
-#add_subdirectory("move")
+add_subdirectory("quadratic-equation")
+add_subdirectory("move")
 add_subdirectory("commands")
