@@ -8,9 +8,10 @@ set(SOURCES-HANDLER
         handler.cpp
         handler-tests.cpp
         )
-        
+
 set(SOURCES-COMMANDS
-        handler-tests.cpp
+        handler.cpp
+        commands-tests.cpp
         )
 
 add_executable(test-handler 
