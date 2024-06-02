@@ -7,7 +7,7 @@ on:
       - feature/github_actions
 
 jobs:
-  build-homework1:
+  run tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,3 +17,5 @@ jobs:
       - run: cmake --build .
       - run: quadratic-equation/test-solve
       - run: move/test-move
+      - run: commands/test-handler
+      - run: commands/test-commands

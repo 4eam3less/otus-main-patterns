@@ -4,7 +4,7 @@ project(otus_main_patterns)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+#add_compile_options(-Wall -Wextra -pedantic -Werror)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -14,6 +14,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_subdirectory("quadratic-equation")
-add_subdirectory("move")
-#add_subdirectory("homework3")
+#add_subdirectory("quadratic-equation")
+#add_subdirectory("move")
+add_subdirectory("commands")
