@@ -1,4 +1,4 @@
-#include "../quadratic-equation.hpp"
+#include "quadratic-equation.hpp"
 #include <gtest/gtest.h>
 
 TEST(Solve, IncorrectCoefficientA){
