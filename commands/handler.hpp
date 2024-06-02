@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <memory>
 #include <map>
+#include <functional>
 
 using func = std::function<std::shared_ptr<ICommand>(std::shared_ptr<ICommand>, const std::exception&)>;
 
@@ -47,7 +48,7 @@ public:
     size_t size() const {
         return store_.size();
     }
-    
+
 private:
     std::unordered_map<std::string,func> store_;
 };
