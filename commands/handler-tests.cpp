@@ -1,5 +1,5 @@
 #include "handler.hpp"
-
+#include "commands.hpp"
 #include <exception>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>

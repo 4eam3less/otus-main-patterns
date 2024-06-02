@@ -5,12 +5,12 @@ set(HEADERS
         )
 
 set(SOURCES-HANDLER
+        handler.cpp
         handler-tests.cpp
-        commands-tests.cpp
         )
+        
 set(SOURCES-COMMANDS
         handler-tests.cpp
-        commands-tests.cpp
         )
 
 add_executable(test-handler 
