@@ -17,8 +17,6 @@ public:
     MOCK_METHOD(void, execute, (), (override));
 };
 
-
-//6.Реализовать Команду, которая повторяет Команду, выбросившую исключение.
 TEST(Commands, Repeat) {
     Handler handler;
     handler.registre_handle(std::make_shared<CommandMock>(), std::runtime_error(""), 
@@ -33,7 +31,7 @@ TEST(Commands, Repeat) {
         EXPECT_THROW(handler.handle(cmd_mock, e)->execute(), std::runtime_error);
     }
 }
-//  // 4.Реализовать Команду, которая записывает информацию о выброшенном исключении в лог.
+
 TEST(Commands, LogWriter) {
     Handler handler;
     handler.registre_handle(std::make_shared<CommandMock>(), std::runtime_error(""),
@@ -48,7 +46,7 @@ TEST(Commands, LogWriter) {
         handler.handle(cmd_mock, e)->execute();
     }
 }
-// //5.Реализовать обработчик исключения, который ставит Команду, пишущую в лог в очередь Команд.
+
 TEST(Commands, AddToQueueCommand) {
     std::shared_ptr<ICommand> cmd_mock (new CommandMock());
     EXPECT_CALL(dynamic_cast<CommandMock&>(*cmd_mock), execute()).WillRepeatedly(Throw(std::runtime_error("")));
@@ -69,7 +67,7 @@ TEST(Commands, AddToQueueCommand) {
     }
     EXPECT_EQ(commands.size(), 2);
 }
-// //7.Реализовать обработчик исключения, который ставит в очередь Команду - повторитель команды, выбросившей исключение.
+
 TEST(Commands, AddToQueueRepeate) {
     std::shared_ptr<ICommand> cmd_mock (new CommandMock());
     EXPECT_CALL(dynamic_cast<CommandMock&>(*cmd_mock), execute()).WillRepeatedly(Throw(std::runtime_error("")));
@@ -91,8 +89,7 @@ TEST(Commands, AddToQueueRepeate) {
     }
     EXPECT_EQ(commands.size(), 2);
 }
-// //8.С помощью Команд из пункта 4 и пункта 6 реализовать следующую обработку исключений:
-//при первом выбросе исключения повторить команду, при повторном выбросе исключения записать информацию в лог.
+
 TEST(Commands, RepeateAndLogWrite) {
     std::shared_ptr<ICommand> cmd_mock (new CommandMock());
     EXPECT_CALL(dynamic_cast<CommandMock&>(*cmd_mock), execute()).WillRepeatedly(Throw(std::runtime_error("error")));
@@ -118,9 +115,6 @@ TEST(Commands, RepeateAndLogWrite) {
         }
     }
 }
-// //9.Реализовать стратегию обработки исключения - повторить два раза, потом записать в лог. 
-// //Указание: создать новую команду, точно такую же как в пункте 6. Тип этой команды будет показывать,
-// //что Команду не удалось выполнить два раза.
 
 TEST(Commands, TwiceRepeateAndLogWrite) {
     std::shared_ptr<ICommand> cmd_mock (new CommandMock());
