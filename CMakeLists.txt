@@ -16,4 +16,4 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory("quadratic-equation")
 add_subdirectory("move")
-#add_subdirectory("homework3")
+add_subdirectory("commands")
