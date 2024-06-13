@@ -2,6 +2,7 @@
 
 #include "../command-interface.hpp"
 #include "command-exeption.hpp"
+#include <memory>
 #include <queue>
 
 class MacroCommand : public ICommand {
