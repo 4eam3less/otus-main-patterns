@@ -16,6 +16,9 @@ jobs:
       - run: cmake .
       - run: cmake --build .
       - run: quadratic-equation/test-solve
-      - run: move/test-move
-      - run: commands/test-handler
+      - run: commands/move/test-move
+      - run: commands/rotate/test-rotate
+      - run: commands/handler/test-handler
       - run: commands/test-commands
+      - run: commands/fuel-commands/test-fuel-commands
+      - run: commands/adapters/test-change-velocity
