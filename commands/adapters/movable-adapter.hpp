@@ -3,6 +3,7 @@
 #include "../command-interface.hpp"
 #include "uobject.hpp"
 #include <numbers>
+#include <math.h>
 
 class MovableAdapter : public IMovable {
 public:
