@@ -1,11 +1,8 @@
-#include "command-interface.hpp"
-#include "handler.hpp"
+#include "handler/handler.hpp"
 #include "commands.hpp"
-
 #include <exception>
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include <queue>
 
 using testing::Throw;
 using testing::Return;

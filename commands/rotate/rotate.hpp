@@ -7,7 +7,7 @@
 class RotateCommand : public ICommand {
 public:
     explicit RotateCommand(std::shared_ptr<IRotable> rotable) : rotable_(rotable) {}
-    void execute() {
+    void execute() override {
         rotable_->set_angle(rotable_->get_angle() + rotable_->get_angular_velocity());
     }
 private:

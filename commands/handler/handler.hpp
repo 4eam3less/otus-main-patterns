@@ -1,6 +1,6 @@
 #pragma once
 
-#include "command-interface.hpp"
+#include "../command-interface.hpp"
 #include <typeinfo>
 #include <memory>
 #include <map>

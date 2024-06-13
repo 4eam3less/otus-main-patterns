@@ -13,7 +13,7 @@ public:
     MOCK_METHOD(Angle, get_angular_velocity, (), (override));
 };
 
-TEST(rotate, CorrectRotate) {
+TEST(Rotate, CorrectRotate) {
     std::shared_ptr<IRotable> rotable_mock(new RotateMock());
     RotateCommand cmd(rotable_mock);
     EXPECT_CALL(dynamic_cast<RotateMock&>(*rotable_mock), get_angle()).WillOnce(Return(Angle{4, 8}));
@@ -22,21 +22,21 @@ TEST(rotate, CorrectRotate) {
     EXPECT_NO_THROW(cmd.execute());
 }
 
-TEST(rotate, GetAngleException) {
+TEST(Rotate, GetAngleException) {
     std::shared_ptr<IRotable> rotable_mock(new RotateMock());
     RotateCommand cmd(rotable_mock);
     EXPECT_CALL(dynamic_cast<RotateMock&>(*rotable_mock), get_angle()).WillOnce(Throw(std::runtime_error("")));
     EXPECT_THROW(cmd.execute(), std::runtime_error);
 }
 
-TEST(rotate, GetAngularVelocityException) {
+TEST(Rotate, GetAngularVelocityException) {
     std::shared_ptr<IRotable> rotable_mock(new RotateMock());
     RotateCommand cmd(rotable_mock);
     EXPECT_CALL(dynamic_cast<RotateMock&>(*rotable_mock), get_angular_velocity()).WillOnce(Throw(std::runtime_error("")));
     EXPECT_THROW(cmd.execute(), std::runtime_error);
 }
 
-TEST(rotate, SetAngleException) {
+TEST(Rotate, SetAngleException) {
     std::shared_ptr<IRotable> rotable_mock(new RotateMock());
     RotateCommand cmd(rotable_mock);
     EXPECT_CALL(dynamic_cast<RotateMock&>(*rotable_mock), get_angle()).WillOnce(Return(Angle{4, 8}));

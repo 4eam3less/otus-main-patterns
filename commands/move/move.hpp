@@ -7,7 +7,7 @@
 class MoveCommand : public ICommand {
 public:
     explicit MoveCommand(std::shared_ptr<IMovable> movable) : movable_(movable) {}
-    void execute() {
+    void execute() override {
         movable_->set_position(movable_->get_position() + movable_->get_velocity());
     }
 private:
