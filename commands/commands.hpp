@@ -1,17 +1,15 @@
 #pragma once
 
 #include "command-interface.hpp"
-#include <typeinfo>
 #include <memory>
-#include <map>
 #include <iostream>
 #include <queue>
 
 class CommandRepeater : public ICommand{
 public:
-    CommandRepeater(std::shared_ptr<ICommand> cmd) : cmd_(cmd) {}
+    explicit CommandRepeater(std::shared_ptr<ICommand> cmd) : cmd_(cmd) {}
 
-    void execute(){
+    void execute() override {
         cmd_->execute();
     }
     ~CommandRepeater(){
@@ -22,9 +20,9 @@ private:
 
 class CommandTwiceRepeater : public ICommand{
 public:
-    CommandTwiceRepeater(std::shared_ptr<ICommand> cmd) : cmd_(cmd) {}
+    explicit CommandTwiceRepeater(std::shared_ptr<ICommand> cmd) : cmd_(cmd) {}
 
-    void execute(){
+    void execute() override {
         cmd_->execute();
     }
 private:
@@ -33,9 +31,9 @@ private:
 
 class CommandLogWriter : public ICommand{
 public:
-    CommandLogWriter(const std::string error) : error_(error) {}
+    explicit CommandLogWriter(const std::string error) : error_(error) {}
 
-    void execute(){
+    void execute() override {
         std::cout << "LOG: " << error_ << std::endl;
     }
 private:
@@ -44,9 +42,9 @@ private:
 
 class CommandAdder : public ICommand{
 public:
-    CommandAdder(std::queue<std::shared_ptr<ICommand>>& commands, std::shared_ptr<ICommand> cmd)
+    explicit CommandAdder(std::queue<std::shared_ptr<ICommand>>& commands, std::shared_ptr<ICommand> cmd)
      : commands_(commands), cmd_(cmd) {}
-    void execute() {
+    void execute() override {
         commands_.push(cmd_);
     }
 private:
@@ -56,5 +54,5 @@ private:
 
 class CommandEmpty : public ICommand{
 public:
-    void execute() {}
+    void execute() override {}
 };

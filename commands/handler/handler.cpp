@@ -1,6 +1,6 @@
 #include "handler.hpp"
-#include "command-interface.hpp"
-#include "commands.hpp"
+#include "../command-interface.hpp"
+#include "../commands.hpp"
 #include <typeinfo>
 #include <memory>
 #include <map>
