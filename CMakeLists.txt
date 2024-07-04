@@ -16,3 +16,4 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory("quadratic-equation")
 add_subdirectory("commands")
+add_subdirectory("IoC")
